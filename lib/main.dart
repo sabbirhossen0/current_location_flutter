@@ -75,11 +75,23 @@ class _LocationScreenState extends State<LocationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Your City")),
-      body: Center(
-        child: Text(
-          city+"\n"+con,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
+      body: SelectableRegion(
+        focusNode:  FocusNode(),
+        selectionControls: MaterialTextSelectionControls(),
+        child: Center(
+          child: Column(
+            children: [
+              Text('Welcome',style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20
+              ),),
+              Text(
+                city+"\n"+con,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
         ),
       ),
     );
